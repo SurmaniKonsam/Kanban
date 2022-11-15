@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&family=Roboto:wght@400;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body
+{
+    font-family: 'Roboto' , sans-serif;
+    background: url('../../assets/contactFormbackground2.jpg');
+    background-size: cover;
+    height: 1000px;
+}
+header{
+    position: absolute;
+    top:0;
+    left:0;
+    width:100% ;
+    padding: 20px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+header .logo{
+    position: relative;
+    max-width: 50px;
+}
+header ul{
+    position: relative;
+    display: flex;
+}
+header ul li{
+    list-style: none;
+}
+header ul li a{
+    display: inline-block;
+    color: #333;
+    font-weight: 1000;
+    margin-left: 30px;
+    text-decoration: none;
+    
+}
+.container{
+    max-width: 800px;
+    margin: -80px auto;
+    text-align: center;
+}
+p{
+    font-size: 1rem;
+    color: #a28089;
+    line-height: 3rem;
+    
+}
+.btn
+{
+    display: inline-block;
+    height: 50px;
+    width: 290px;
+    padding: 1rem 5.5rem;
+    background:#a28089;
+    font-size: 20px;
+    text-decoration: none;
+    color:#494D5F ;
+    border-radius: 10px;
+    transition: background 0.5s;
+}
+.btn:hover{
+    background: lightpink;
+}
+section{
+    position: relative;
+    width: 100%;
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+section:before{
+    content: '';
+    position: absolute;
+    top: 17%;
+    left: 36%;
+    width: 27%;
+    height: 55%;
+    background: #a28089;
+    border-radius:58% 42% 37% 63% / 37% 31% 69% 63%    ;
+    
+}
+section .content
+{
+    position: relative;
+    z-index: 0.5;
+    margin: 0 auto;
+    max-width: 900px;
+    text-align: center;
+}
+section .content h2{
+    margin: 0;
+    padding: 0;
+    color: #494D5F;
+    font-size: 5rem;
+    font-weight: 700;
+    letter-spacing: 8px;
+    margin-bottom: 2rem;
+
+}
+section .content p{
+    color: #fff;
+    font-size: 1.2em;
+    
+}
+
+

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="TaskManagerService" />
+        <module name="UserAuthentication" />
+        <module name="Eureka" />
+        <module name="TaskService" />
+        <module name="TaskAPIGateway" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Eureka" target="18" />
+      <module name="TaskAPIGateway" target="18" />
+      <module name="TaskBee" target="19" />
+      <module name="TaskManagerService" target="18" />
+      <module name="TaskService" target="17" />
+      <module name="UserAuthentication" target="18" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Eureka" options="-parameters" />
+      <module name="TaskAPIGateway" options="-parameters" />
+      <module name="TaskManagerService" options="-parameters" />
+      <module name="TaskService" options="-parameters" />
+      <module name="UserAuthentication" options="-parameters" />
+    </option>
+  </component>
+</project>

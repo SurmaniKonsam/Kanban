@@ -1,0 +1,38 @@
+<a routerLink="home"><mat-icon class="close" mat-dialog-close="close Dialogue">close</mat-icon></a>
+<span [hidden]="data.flag"><h2 mat-dialog-title >Add Task</h2></span>
+<span [hidden]="!data.flag"><h2 mat-dialog-title >Update Task</h2></span>
+<form [formGroup]="newtaskform">
+    <mat-form-field appearance="standard" style="width:300px;">
+        <mat-label style="color: black;">Task Name</mat-label>
+        <input type="name" matInput placeholder="Ex. Design Architecture of Project" formControlName="taskName" 
+        [ngModel]="data.card.cardName">
+    </mat-form-field> <br>
+    <mat-form-field appearance="standard" style="width:300px;">
+        <mat-label style="color: black;">Priority</mat-label>
+        <mat-select formControlName="priority" [ngModel]="data.card.taskPriority">
+          <mat-option style="color:yellow;" value="HIGH">HIGH</mat-option>
+          <mat-option style="color: greenyellow;" value="LOW">LOW</mat-option>
+          <mat-option style="color:red" value="URGENT">URGENT</mat-option>
+          <mat-option style="color:green;" value="NORMAL">NORMAL</mat-option>
+          <mat-option value="NONE">NONE</mat-option>
+        </mat-select>
+      </mat-form-field> <br>
+      <mat-form-field appearance="standard" style="width:300px;">
+        <mat-label style="color: black;">Description</mat-label>
+        <input matInput type="text-area" formControlName="description" [ngModel]="data.card.description">
+      </mat-form-field> <br>
+      <mat-form-field appearance="standard" style="width:300px;" >
+        <mat-label style="color: black;">Assign task to project memeber</mat-label>
+        <mat-select formControlName="assignee" [ngModel]="data.card.cardAssignee">
+          <mat-option *ngFor="let card of users2" style="color:yellow;" value="{{card}}">{{card}}</mat-option>
+        </mat-select>
+      </mat-form-field> <br>
+      <mat-form-field appearance="standard" style="width:300px;">
+        <mat-label style="color: black;">Select the stage of task</mat-label>
+        <mat-select formControlName="category" [ngModel]="data.card.category">
+          <mat-option *ngFor="let category of this.categories1" value="{{category}}">{{category}}</mat-option>
+        </mat-select>
+      </mat-form-field><br><br>
+      <div [hidden]="data.flag"><button mat-flat-button mat-dialog-close (click)="add()" class="addButton">Add</button></div>
+      <div [hidden]="!data.flag"><button mat-flat-button mat-dialog-close (click)="update()" class="addButton">Update</button></div>
+</form>

@@ -1,0 +1,40 @@
+<a routerLink="home"><mat-icon class="close" mat-dialog-close>close</mat-icon></a>
+<span [hidden]="data.flag"><h2 mat-dialog-title >Add Project</h2></span>
+<span [hidden]="!data.flag"><h2 mat-dialog-title >Edit Project</h2></span>
+<form class="example-form" [formGroup]="newprojectform">
+  <mat-form-field class="example-full-width" appearance="standard" style="width:300px;">
+    <mat-label style="color: black;">Project Name</mat-label>
+    <input type="name" matInput placeholder="Example : Class Diagram" formControlName="projectName"
+    [ngModel]="data.project.taskListName">
+  </mat-form-field> <br>
+  <mat-form-field appearance="standard" style="width:300px;">
+    <mat-label style="color: black;">Choose a date</mat-label>
+    <input  matInput type="date" formControlName="date" [ngModel]="data.project.date | date:'yyyy-MM-dd'">
+  </mat-form-field> <br>
+  <mat-form-field appearance="standard" style="width:300px;">
+    <mat-label style="color: black;">Priority</mat-label>
+    <mat-select formControlName="priority" [ngModel]="data.project.projectPriority">
+      <mat-option style="color:yellow;" value="HIGH">HIGH</mat-option>
+      <mat-option style="color: greenyellow;" value="LOW">LOW</mat-option>
+      <mat-option style="color:red" value="URGENT">URGENT</mat-option>
+      <mat-option style="color:green;" value="NORMAL">NORMAL</mat-option>
+      <mat-option value="option">NONE</mat-option>
+    </mat-select>
+  </mat-form-field> <br>
+  <mat-form-field class="example-chip-list" appearance="standard" style="width:300px;">
+    <mat-label style="color: black;">Add participants</mat-label>
+    <mat-chip-list #chipList aria-label="Fruit selection">
+      <mat-chip *ngFor="let fruit of fruits" (removed)="remove(fruit)">
+        {{fruit}}
+        <button matChipRemove>
+          <mat-icon>cancel</mat-icon>
+        </button>
+      </mat-chip>
+      <input style="color: black;" placeholder="New Name..." [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+        [matChipInputAddOnBlur]="addOnBlur" (matChipInputTokenEnd)="add1($event)" formControlName="projectmembers">
+    </mat-chip-list>
+  </mat-form-field>
+  <br><br>
+  <div [hidden]="data.flag"><button mat-flat-button mat-dialog-close (click)="add()" class="addButton">Add</button> &nbsp;&nbsp;</div>
+  <div [hidden]="!data.flag"><button mat-flat-button mat-dialog-close (click)="update()" class="addButton">Update</button> &nbsp;&nbsp;</div>
+</form>

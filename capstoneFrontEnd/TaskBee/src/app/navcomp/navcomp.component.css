@@ -1,0 +1,86 @@
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 200px;
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+  position: fixed;
+  top: 0;
+  z-index: 1;
+}
+.logout {
+  border-radius: 5px;
+  box-shadow: 0 0 10px #494D5F;
+  position: fixed;
+  top: 10px;
+  right: 15px;
+}
+.ExistingProjects{
+  letter-spacing: 1px;
+  position: absolute;
+  left: 20px;
+  bottom: 14px;
+  font-weight: 500;
+  color: #a28089;
+}
+.ExistingProjectsIcon{
+  position: absolute;
+  right: -30px;
+  top:-3px;
+  color: #a28089;
+}
+.CreateNewTask{
+  letter-spacing: -0.1px;
+  font-weight: 500;
+  color: #a28089;
+}
+.CreateNewTaskIcon{
+  position: absolute;
+  right: 10px;
+  top:12px;
+  color: #a28089;
+}
+.projectList
+{
+  color: #a28089;
+  border-radius: 5px;
+  box-shadow: 0 0 10px #a28089;
+  font-weight: 100;
+}
+.createNew
+{
+  color: #a28089;
+  border-radius: 5px;
+  box-shadow: 0 0 10px #a28089;
+  height: 50px;
+}
+.addtask {
+  background-color: #a28089;
+  color: black;
+  border-radius: 10px;
+  box-shadow: 0 0 20px #494D5F;
+  margin-top: 20px;
+}
+
+.addtaskIcon {
+  position: absolute;
+  top: 5.8px;
+  right: 8px;
+}
+.menugif
+{
+  height: 44px;
+  width: 44px;
+  position: absolute;
+  top: 8px;
+  left: 30px;
+  box-shadow: 0 0 10px #494D5F;
+  border-radius: 50% 50% 50% 50% / 50% 50% 50% 50% ;
+}

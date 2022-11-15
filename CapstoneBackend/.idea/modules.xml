@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/CapstoneBackend.iml" filepath="$PROJECT_DIR$/.idea/CapstoneBackend.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TaskBee/Eureka/Eureka.iml" filepath="$PROJECT_DIR$/TaskBee/Eureka/Eureka.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TaskBee/TaskAPIGateway/TaskAPIGateway.iml" filepath="$PROJECT_DIR$/TaskBee/TaskAPIGateway/TaskAPIGateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TaskBee/TaskBee.iml" filepath="$PROJECT_DIR$/TaskBee/TaskBee.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TaskBee/TaskManagerService/TaskManagerService.iml" filepath="$PROJECT_DIR$/TaskBee/TaskManagerService/TaskManagerService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TaskBee/TaskService/TaskService.iml" filepath="$PROJECT_DIR$/TaskBee/TaskService/TaskService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TaskBee/UserAuthentication/UserAuthentication.iml" filepath="$PROJECT_DIR$/TaskBee/UserAuthentication/UserAuthentication.iml" />
+    </modules>
+  </component>
+</project>

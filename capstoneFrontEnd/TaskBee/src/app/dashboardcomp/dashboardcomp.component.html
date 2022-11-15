@@ -1,0 +1,162 @@
+<div [hidden]="!this.taskservice.hideDashDiv" class="DashboardLandingDiv">
+  <h2 class="DashboardLandingH"><span class="DashboardLandingSpan1">H</span>ello! <span
+      class="username">{{User1.name}}</span><br><br> We<span class="DashboardLandingSpan2">lc</span>ome to Task<span
+      class="DashboardLandingSpan2">Bee</span> Das<span class="DashboardLandingSpan2">hb</span>oard</h2>
+  <img src="../../assets/112-book-morph-lineal.gif" alt="" class="DashboardImage">
+</div>
+<div [hidden]="this.taskservice.hideDashDiv">
+  <div style="display: flex; justify-content: space-between;width:58%;margin-top: 80px;">
+    <div style="border:2px;height:45px; background-color: solid black; margin-left: 10px;">
+      <img src="../../assets/245-edit-document-lineal.gif" alt="" style="width:44px;height:48px">
+      <span style="margin-left:10px;color:#a28089;font-weight: bolder;font-size: 20px;width: 300px;display: inline;">{{this.taskservice.currentproject}}</span>
+    </div>
+    <div style="border:2px;height:45px;width:340px; background-color: solid black;">
+      <mat-form-field style="width: 220px;color: #a28089;margin-left: 52px;">
+        <mat-label style="color:#a28089 ;">Search </mat-label>
+        <input type="tel" matInput  [matAutocomplete]="auto" style="width: 600px;"
+          [(ngModel)]="search" >
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let option of this.taskservice.cardnameForSearch" [value]="option" style="width: 1000px;">
+            {{option}}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+      <span>
+        <button style="background-color:#a28089 ;" mat-raised-button (click)="searchMethod()">
+          <mat-icon style="color: black;">search</mat-icon>
+        </button>
+      </span>
+    </div>
+  </div>
+
+  <!-- <mat-progress-bar class="progressBar" mode="indeterminate" *ngIf="progressBar" style="height:15px"
+    [style.width.px]='this.taskservice.matDivLen'></mat-progress-bar> -->
+
+
+
+  <mat-divider style="border-top-width: .01px;margin-top: 40px;" [style.width.px]="this.taskservice.matDivLen"></mat-divider>
+
+
+
+  <div class="grid-container" style="position: absolute;top: 220px;left: -285px;"
+    [style.width.px]='this.taskservice.matDivLen'>
+    <!-- {{this.taskservice.matDivLen}} -->
+    <mat-nav-list *ngFor="let name of this.taskservice.categories"
+      style="columns: '{{this.taskservice.categories.length}}';float:left; margin-left: 300px;">
+      <div style="float:left; position: absolute;" class="mainDiv1">
+        <h2 mat-subheader style="color: #a28089;margin-top: 5px;margin-left:40px;text-decoration: underline;"><img
+          src="../../assets/656-person-sign-protest-lineal.gif" alt="" class="cardnamegif">{{name}}</h2>
+        <button mat-icon-button [matMenuTriggerFor]="CardMenu" aria-label="Example icon-button with a menu"
+          style="position: absolute;top:5px;left:220px">
+          <mat-icon style="color:#a28089">more_vert</mat-icon>
+        </button>
+        <mat-menu #CardMenu="matMenu" style="background-color: #a28089;">
+          <button mat-menu-item style="color: #a28089" (click)="deleteColumn(name)">
+            <mat-icon style="color: #a28089">delete</mat-icon>
+            <span>Delete</span>
+          </button>
+        </mat-menu>
+        <mat-nav-list *ngFor="let cardname of this.taskservice.taskcards1" class="navlist1" cdkDropList
+          (cdkDropListDropped)="moveTo(cardname.cardName,name)">
+          <mat-card style="height:240px; width:210px;margin-top: 8px; background: #a28089;box-shadow: 0 0 8px #494D5F;"
+            *ngIf="cardname.category==name" cdkDragBoundary=".example-boundary" cdkDrag>
+            <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu"
+              style="float: right;">
+              <mat-icon style="color:black">more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu" style="background-color: #a28089;">
+              <button mat-menu-item style="color: #a28089" (click)="editcard(cardname.cardName)">
+                <mat-icon style="color: #a28089">edit</mat-icon>
+                <span>Edit</span>
+              </button>
+              <button mat-menu-item style="color: #a28089" (click)="infoCard(cardname.cardName)">
+                <mat-icon style="color: #a28089">info</mat-icon>
+                <span>Info</span>
+              </button>
+            </mat-menu>
+            <mat-card-title class="taskname">{{cardname.cardName}}</mat-card-title>
+            <mat-divider></mat-divider>
+            <mat-card-content class="priorityname">
+              <mat-icon style="float: left;margin-right: 6px;" matTooltip="Priority"> notes</mat-icon>
+              {{cardname.taskPriority}}
+              <div *ngIf="cardname.taskPriority=='HIGH'" style="float: right;margin-right: 10px;">
+                <mat-icon style="color: yellow;">flag</mat-icon>
+              </div>
+              <div *ngIf="cardname.taskPriority=='LOW'" style="float: right;margin-right: 10px;">
+                <mat-icon style="color: yellowgreen;">flag</mat-icon>
+              </div>
+              <div *ngIf="cardname.taskPriority=='URGENT'" style="float: right;margin-right: 10px;">
+                <mat-icon style="color: red;">flag</mat-icon>
+              </div>
+              <div *ngIf="cardname.taskPriority=='NORMAL'" style="float: right;margin-right: 10px;">
+                <mat-icon style="color: green;">flag</mat-icon>
+              </div>
+              <div *ngIf="cardname.taskPriority=='NONE'" style="float: right;margin-right: 10px;">
+                <mat-icon>flag</mat-icon>
+              </div>
+            </mat-card-content>
+            <mat-divider></mat-divider>
+            <mat-card-content class="duedate">
+              <mat-icon style="float: left;margin-right: 6px;" matTooltip="Due Date">date_range</mat-icon>
+              {{this.taskservice.projectDue}}
+            </mat-card-content>
+            <mat-divider></mat-divider>
+            <mat-card-content class="assigne">
+              <mat-icon style="float: left;margin-right: 6px;" matTooltip="Assigned To">perm_contact_calendar</mat-icon>
+              {{cardname.cardAssignee}}
+            </mat-card-content>
+            <mat-divider></mat-divider>
+            <div><button mat-flat-button style="float:left; background-color: #a28089;">
+                <mat-icon matTooltip="MoveBack" (click)="move1(cardname.cardName)" style="color: #12343b;">navigate_before</mat-icon>
+              </button></div>
+            <button mat-flat-button style="float:left; background-color: #a28089;">
+              <mat-icon matTooltip="MoveForward" (click)="move(cardname.cardName)" style="color: #12343b;">navigate_next</mat-icon>
+            </button>
+            <button mat-flat-button style="background-color: #a28089; float: right; margin-right:7px;">
+              <mat-icon matTooltip="DeleteTask" (click)="delete(cardname.cardName)" style="color: #12343b;">delete</mat-icon>
+            </button>
+
+          </mat-card>
+        </mat-nav-list>
+      </div>
+    </mat-nav-list>
+  </div>
+  <!-- <mat-divider style="border-top-width:0.01px"></mat-divider> -->
+  <mat-accordion multi>
+    <mat-expansion-panel style="width:200px" [expanded]="step===0" (opened)="setStep(0)" class="addColumn">
+      <mat-expansion-panel-header>
+        <mat-panel-title class="addColumnName" style="font-weight: bold;"> Column
+        </mat-panel-title>
+        <mat-panel-description>
+          <mat-icon class="addColumnIcon">library_add</mat-icon>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <mat-form-field appearance="fill" [formGroup]="columnform" style="width: 160px;">
+        <mat-label style="color: black;">Column name : </mat-label>
+        <input matInput formControlName="columnname">
+      </mat-form-field>
+
+      <button mat-button (click)="addcolumn()" class="addColumnButton">Add</button>
+
+    </mat-expansion-panel>
+  </mat-accordion>
+</div>
+<div>
+  <style>
+    df-messenger {
+        --df-messenger-bot-message: #878fac;
+        --df-messenger-button-titlebar-color: #a28089;
+        --df-messenger-chat-background-color: #fafafa;
+        --df-messenger-font-color: white;
+        --df-messenger-send-icon: #a28089;
+        --df-messenger-user-message: #479b3d;
+    }
+</style>
+  <df-messenger
+  intent="WELCOME"
+  chat-title="ChatBot"
+  agent-id="440eb526-1a47-41a1-af3f-f7b1008267f4"
+  language-code="en"
+></df-messenger>
+</div>

@@ -1,0 +1,50 @@
+<div [hidden]="!data.flag">
+<a routerLink="home"><mat-icon class="close" mat-dialog-close>close</mat-icon></a>
+<div class="mainDiv">
+  <div class="div1">
+    <h1 matSubheader class="div1h1"><mat-icon style="margin-right:5px;">info</mat-icon>Task Details</h1>
+  </div>
+  <div class="div2">
+    <div class="tasknamediv">
+      <h1 matSubheader style="width:350px ;"><mat-icon>subject</mat-icon><h2 style="margin-left: 5px;margin-top: 14px;">Task : </h2><h2 style="margin-left: 10px;margin-top: 14px;">{{this.card.cardName}}</h2></h1>
+    </div>
+    <mat-divider style="height: 2px;"></mat-divider>
+    <div class="taskdescriptiondiv">
+      <h2 mat-subheader style="display: inline-block;"><mat-icon style="min-width: 30px;">description</mat-icon><h2 style="margin-left: 2px;min-width: 140px;display: inline;;">Description : </h2><h2 style="margin-left: 2px;margin-top: 2px;line-height: 22px;display: inline;">{{this.card.description}}</h2></h2>
+    </div>
+  </div>
+  <div class="div3">
+    <div class="assigneddiv">
+      <h1 mat-subheader style="width:350px ;"><mat-icon >perm_contact_calendar</mat-icon><h2 style="margin-left: 5px;margin-top: 14px;">Assigned : </h2><h2 style="margin-left: 10px;margin-top: 14px;">{{this.card.cardAssignee}}</h2></h1>
+    </div>
+    <mat-divider style="height: 2px;"></mat-divider>
+    <div class="prioritydiv">
+      <h1 mat-subheader style="width:350px ;"><mat-icon>notes</mat-icon><h2 style="margin-left: 5px;margin-top: 14px;">Priority : </h2><h2 style="margin-left: 10px;margin-top: 14px;">{{this.card.taskPriority}}</h2></h1>
+      <div *ngIf="this.card.taskPriority=='HIGH'" style="float: right;margin-top:-80px;margin-right: 120px;">
+        <mat-icon style="color: yellow;">flag</mat-icon>
+      </div>
+      <div *ngIf="this.card.taskPriority=='LOW'" style="float: right;margin-top:-80px;margin-right: 120px;">
+        <mat-icon style="color: yellowgreen;">flag</mat-icon>
+      </div>
+      <div *ngIf="this.card.taskPriority=='URGENT'" style="float: right;margin-top:-80px;margin-right: 120px;">
+        <mat-icon style="color: red;">flag</mat-icon>
+      </div>
+      <div *ngIf="this.card.taskPriority=='NORMAL'" style="float: right;margin-top:-80px;margin-right: 120px;">
+        <mat-icon style="color: green;">flag</mat-icon>
+      </div>
+      <div *ngIf="this.card.taskPriority=='NONE'" style="float: right;margin-top:-80px;margin-right: 120px;">
+        <mat-icon>flag</mat-icon>
+      </div>
+    </div>
+    <mat-divider style="height: 2px;"></mat-divider>
+    <div class="stagediv">
+      <h1 mat-subheader style="width:350px ;"><mat-icon>device_hub</mat-icon><h2 style="margin-left: 5px;margin-top: 14px;">Stage : </h2><h2 style="margin-left: 10px;margin-top: 14px;">{{this.card.category}}</h2></h1>
+    </div>
+  </div>
+</div>
+</div>
+<div [hidden]="data.flag">
+  <span [hidden]="data.flag2"><img src="../../assets/1122-thumb-down-lineal.gif" alt="" class="errorgif"></span>
+  <span [hidden]="!data.flag2"><img src="../../assets/37-approve-checked-simple-lineal.gif" alt="" class="okgif"></span>
+  <h1 matSubheader class="errorokgif">{{data.card}}</h1>
+</div>

@@ -1,0 +1,44 @@
+
+    <body>
+      <header>
+        <ul>
+            <li><a style="cursor:pointer" (click)="nav2()">About</a></li>
+            <li><a style="cursor:pointer" (click)="nav3()">Contact</a></li>
+            <li><a style="cursor:pointer" (click)="nav1()">Register</a></li>
+            <li><a style="cursor:pointer" (click)="nav4()">Home</a></li>
+        </ul>
+    </header>
+      <div><img src="../../assets/TaskBeeLogo.png" style="width: 50px;margin-left:80px;margin-top:10px"></div>
+      <div  class="div2">
+        <h2 matSubheader>Login <img src="../../assets/1021-rules-lineal.gif" alt="" 
+          style="height:75px;width:75px;float:right;margin-right:-470px;display: inline;margin-top: 450px;
+          border-radius: 50% 50% 50% 50% / 50% 50% 50% 50% "></h2>
+        <form class="example-form" [formGroup]="loginform" style="margin-top: -40px;">
+          <mat-form-field class="example-full-width" appearance="standard" style="margin-top: 50px;">
+            <mat-label style="color:black;">Email</mat-label>
+            <input type="email" matInput placeholder="Ex.abc@mailer.com" formControlName="mail" >
+            <mat-error *ngIf="loginform.controls['mail'].hasError('email')">
+              Please enter a valid email address
+            </mat-error>
+            <mat-error *ngIf="loginform.controls['mail'].hasError('required')">
+              Email is <strong>required</strong>
+            </mat-error>
+          </mat-form-field> <br>
+    
+          <mat-form-field appearance="standard">
+            <mat-label style="color:black">Password</mat-label>
+            <input type="Password" matInput formControlName="password">
+            <mat-error *ngIf="loginform.controls['password'].hasError('required')">
+              Password is <strong>required</strong>
+            </mat-error>
+          </mat-form-field> <br>
+          <mat-error></mat-error> <br>
+          <button mat-flat-button (click)="login()">Login</button>
+        </form>
+        <div style="margin-top: 260px;">
+          <p style="margin-left: 50px;">Don't have an account? 
+           <a style="font-weight: 500;color:black ;text-decoration: none;cursor: pointer;" (click)="register()">Sign up</a>
+           </p>
+        </div>
+      </div>
+    </body>

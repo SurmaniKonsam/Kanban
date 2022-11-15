@@ -1,0 +1,45 @@
+class User{
+	@ID
+	String email;
+	String password;
+	String name;
+	String/long phoneNumber; 
+	List<TaskList> tasklistList; //user has a list of projects in his Kannan-app account
+} 
+class TaskList{	
+	//int UserID;		//Manager Service
+	String taskListName;
+	Category category;
+	Date date;
+	List<TaskCard> listOfTasksInProject;
+	TaskPriority projectPriority;
+	List<User> listOfUsers; 
+}
+class TaskCard{	
+	//int userID;
+	//int taskListID;		//Task service
+	String cardName;
+	TaskPriority taskPriority;	
+	String description;	//what the task to perform is
+	Categories cardStatus;
+	String cardAssignee; //foreign key from User class
+}
+class Category{
+	private List<String> categoryName;
+}
+
+enum TaskPriority{
+	HIGH,NORMAL,LOW,URGENT	
+} 
+enum ProjectCategory{
+	IT,SALES,MARKETING,FINANCIAL,MANAGEMENT //add or remove as per suggestions
+} 
+enum Categories{
+	TO-DO,WORK_IN_PROGRESS,VALIDATE,COMPLETE,PENDING,ARCHIVE
+}
+
+-----------------------------------
+URGENT-RED
+HIGH-YELLOW
+NORMAL-GREEN
+LOW-BLUE
